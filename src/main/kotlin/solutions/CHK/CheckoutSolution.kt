@@ -24,11 +24,11 @@ data class Skus(var totalSoFar: Int, val skus: MutableList<Char>) {
 
     fun consumeA(): Skus {
         val aCount = countSku('A')
-        val applyFirstDeal = aCount /
-        val firstDeal =
-//        val value = specialDeal(3, 130, 50, countSku('A'))
+        val firstDealCount = aCount / 5
+        val secondDealCount = (aCount - (firstDealCount * 5)) / 3
+        val leftOver = (aCount - (firstDealCount * 5) - secondDealCount * 3)
         skus.removeIf { it == 'A' }
-        totalSoFar += value
+        totalSoFar += (firstDealCount * 200) + (secondDealCount * 130) + (leftOver * 50)
         return this
     }
 
@@ -76,8 +76,3 @@ data class Skus(var totalSoFar: Int, val skus: MutableList<Char>) {
     }
 
 }
-
-
-
-
-
