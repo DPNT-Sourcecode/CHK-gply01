@@ -4,6 +4,11 @@ import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
 class CheckoutSolutionTest {
+    
+    @Test
+    fun `Free Bs with 2 Es`() {
+        assert(CheckoutSolution.checkout("EEEB") == 130)
+    }
 
     @Test
     fun `Contains invalid`() {
