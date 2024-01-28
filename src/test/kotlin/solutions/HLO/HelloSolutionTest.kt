@@ -7,7 +7,7 @@ class HelloSolutionTest {
 
     @Test
     fun `Says Hello`() {
-        assert(HelloSolution.hello("Rowan") == "Hello, World!")
+        assert(HelloSolution.hello("Rowan") == "Hello, Rowan!")
     }
 
 }
