@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test
 class CheckoutSolutionTest {
 
     @Test
-    fun `Complex case`() {
-
+    fun `A Special`() {
+        assert(CheckoutSolution.checkout("AAA") == 130)
     }
 
 }
