@@ -62,6 +62,12 @@ data class Skus(var totalSoFar: Int, val skus: MutableList<Char>) {
         return this
     }
 
+    fun consumeF(): Skus {
+        val fCount = countSku('F')
+        val freeFs = fCount / 3
+        totalSoFar += (fCount - freeFs) *
+    }
+
     private fun countSku(char: Char) = this.skus.count { it == char }
 
     private fun specialDeal(dealCount: Int, forMoney: Int, usualPrice: Int, itemCount: Int): Int {
@@ -76,3 +82,4 @@ data class Skus(var totalSoFar: Int, val skus: MutableList<Char>) {
     }
 
 }
+
