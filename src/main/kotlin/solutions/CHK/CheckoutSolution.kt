@@ -23,7 +23,10 @@ object CheckoutSolution {
 data class Skus(var totalSoFar: Int, val skus: MutableList<Char>) {
 
     fun consumeA(): Skus {
-        val value = specialDeal(3, 130, 50, countSku('A'))
+        val aCount = countSku('A')
+        val applyFirstDeal = aCount /
+        val firstDeal =
+//        val value = specialDeal(3, 130, 50, countSku('A'))
         skus.removeIf { it == 'A' }
         totalSoFar += value
         return this
@@ -73,6 +76,7 @@ data class Skus(var totalSoFar: Int, val skus: MutableList<Char>) {
     }
 
 }
+
 
 
 
