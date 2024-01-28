@@ -10,7 +10,10 @@ object CheckoutSolution {
     )
 
     fun checkout(skus: String): Int {
-        return -1
+        val aCount = skus.filter { it == 'A' }
+        val bCount = skus.filter { it == 'B' }
+        val cCount = skus.filter { it == 'C' }
+        val dCount = skus.filter { it == 'D' }
     }
 
     fun getPrice(sku: String, number: Int = 1): Int {
@@ -23,4 +26,5 @@ object CheckoutSolution {
         }
     }
 }
+
 
