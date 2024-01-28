@@ -8,31 +8,53 @@ object CheckoutSolution {
 
         if (skus.count { it !in valid } != 0) return -1
 
-        val aCount = skus.count { it == 'A' }
-        val bCount = skus.count { it == 'B' }
-        val cCount = skus.count { it == 'C' }
-        val dCount = skus.count { it == 'D' }
-        val eCount = skus.count { it == 'E' }
-
-        return getPrice('A', aCount)  +
-                getPrice('B', bCount) +
-                getPrice('C', cCount) +
-                getPrice('D', dCount) +
-                getPrice('E', eCount)
+        return Skus(totalSoFar = 0, skus = skus.toMutableList())
+            .consumeA()
+            .consumeB()
+            .consumeC()
+            .consumeD()
+            .consumeE()
+            .totalSoFar
     }
 
-    fun getPrice(sku: Char, number: Int = 1): Int {
-        return when (sku) {
-            'A' ->  specialDeal(3, 130, 50, number)
-            'B' -> specialDeal(2, 45, 30, number)
-            'C' -> 20 * number
-            'D' -> 15 * number
-//            'E' -> specialDeal()
-            else -> throw IllegalArgumentException()
-        }
+
+}
+
+data class Skus(var totalSoFar: Int, val skus: MutableList<Char>) {
+
+    fun consumeA(): Skus {
+        val value = specialDeal(3, 130, 50, countSku('A'))
+        skus.removeIf { it == 'A' }
+        totalSoFar += value
+        return this
     }
 
-    fun specialDeal(dealCount: Int, forMoney: Int, usualPrice: Int, itemCount: Int): Int {
+    fun consumeB(): Skus {
+        val value = specialDeal(2, 45, 30, countSku('B'))
+        skus.removeIf { it == 'B' }
+        totalSoFar += value
+        return this
+    }
+
+    fun consumeC(): Skus {
+        totalSoFar += countSku('C') * 20
+        skus.removeIf { it == 'C' }
+        return this
+    }
+
+    fun consumeD(): Skus {
+        totalSoFar += countSku('D') * 15
+        skus.removeIf { it == 'D' }
+        return this
+    }
+
+    fun consumeE(): Skus {
+        return this
+    }
+
+    private fun countSku(char: Char) = this.skus.count { it == char }
+
+    private fun specialDeal(dealCount: Int, forMoney: Int, usualPrice: Int, itemCount: Int): Int {
         var total = 0
         var items = itemCount
         while (items >= dealCount) {
@@ -42,5 +64,6 @@ object CheckoutSolution {
         total += items * usualPrice
         return total
     }
+
 }
 
