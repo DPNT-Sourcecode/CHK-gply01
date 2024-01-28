@@ -1,6 +1,5 @@
 package solutions.CHK
 
-import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
 class CheckoutSolutionTest {
@@ -18,6 +17,22 @@ class CheckoutSolutionTest {
     @Test
     fun `A Special`() {
         assert(CheckoutSolution.checkout("AAA") == 130)
+    }
+
+    @Test
+    fun `A Special 2`() {
+        assert(CheckoutSolution.checkout("AAAAA") == 200)
+    }
+
+    @Test
+    fun `A Special Complicated`() {
+        /**
+         * 5A = 200
+         * 3A = 130
+         * 1A = 50
+         * = 380
+         */
+        assert(CheckoutSolution.checkout("AAAAAAAAA") == 380)
     }
 
     @Test
