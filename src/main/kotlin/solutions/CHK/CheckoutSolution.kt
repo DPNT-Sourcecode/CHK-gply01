@@ -10,7 +10,7 @@ object CheckoutSolution {
     )
 
     fun checkout(skus: String): Int {
-        TODO("Solution not implemented")
+        return -1
     }
 
     fun getPrice(sku: String, number: Int = 1): Int {
@@ -23,3 +23,4 @@ object CheckoutSolution {
         }
     }
 }
+
