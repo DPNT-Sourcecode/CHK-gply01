@@ -49,7 +49,7 @@ data class Skus(var totalSoFar: Int, val skus: MutableList<Char>) {
     }
 
     fun consumeE(): Skus {
-        return this
+        val free
     }
 
     private fun countSku(char: Char) = this.skus.count { it == char }
@@ -66,4 +66,5 @@ data class Skus(var totalSoFar: Int, val skus: MutableList<Char>) {
     }
 
 }
+
 
