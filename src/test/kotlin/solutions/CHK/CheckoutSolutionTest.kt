@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
 class CheckoutSolutionTest {
-    
+
     @Test
     fun `Contains invalid`() {
         assert(CheckoutSolution.checkout("AAAB3") == -1)
