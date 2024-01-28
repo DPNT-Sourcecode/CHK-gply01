@@ -49,7 +49,13 @@ data class Skus(var totalSoFar: Int, val skus: MutableList<Char>) {
     }
 
     fun consumeE(): Skus {
-        val free
+        val eCost = countSku('E') * 40
+        totalSoFar += eCost
+        var freeBs = countSku('E') / 2
+        skus.removeIf { it == 'E' }
+        for (i until ) {
+
+        }
     }
 
     private fun countSku(char: Char) = this.skus.count { it == char }
@@ -66,5 +72,6 @@ data class Skus(var totalSoFar: Int, val skus: MutableList<Char>) {
     }
 
 }
+
 
 
