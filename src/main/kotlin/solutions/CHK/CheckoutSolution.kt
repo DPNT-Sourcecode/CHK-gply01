@@ -2,7 +2,12 @@ package solutions.CHK
 
 object CheckoutSolution {
 
+    private val valid = listOf('A', 'B', 'C', 'D')
+
     fun checkout(skus: String): Int {
+
+        if (skus.count { it !in valid } != 0) return -1
+
         val aCount = skus.count { it == 'A' }
         val bCount = skus.count { it == 'B' }
         val cCount = skus.count { it == 'C' }
