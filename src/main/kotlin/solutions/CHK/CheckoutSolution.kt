@@ -2,7 +2,7 @@ package solutions.CHK
 
 object CheckoutSolution {
 
-    private val valid = listOf('A', 'B', 'C', 'D', 'E')
+    private val valid = listOf('A', 'B', 'C', 'D', 'E', 'F')
 
     fun checkout(skus: String): Int {
 
@@ -14,6 +14,7 @@ object CheckoutSolution {
             .consumeB()
             .consumeC()
             .consumeD()
+            .consumeF()
             .totalSoFar
     }
 
@@ -65,7 +66,8 @@ data class Skus(var totalSoFar: Int, val skus: MutableList<Char>) {
     fun consumeF(): Skus {
         val fCount = countSku('F')
         val freeFs = fCount / 3
-        totalSoFar += (fCount - freeFs) *
+        totalSoFar += (fCount - freeFs) * 10
+        return this
     }
 
     private fun countSku(char: Char) = this.skus.count { it == char }

@@ -1,27 +1,33 @@
 package solutions.CHK
 
 import org.junit.jupiter.api.Test
+import solutions.CHK.CheckoutSolution.checkout
 
 class CheckoutSolutionTest {
 
     @Test
+    fun `Free Fs with 3 or more`() {
+        assert(checkout("FFF") == 20)
+    }
+
+    @Test
     fun `Free Bs with 2 Es`() {
-        assert(CheckoutSolution.checkout("EEEBB") == 150)
+        assert(checkout("EEEBB") == 150)
     }
 
     @Test
     fun `Contains invalid`() {
-        assert(CheckoutSolution.checkout("AAAB3") == -1)
+        assert(checkout("AAAB3") == -1)
     }
 
     @Test
     fun `A Special`() {
-        assert(CheckoutSolution.checkout("AAA") == 130)
+        assert(checkout("AAA") == 130)
     }
 
     @Test
     fun `A Special 2`() {
-        assert(CheckoutSolution.checkout("AAAAA") == 200)
+        assert(checkout("AAAAA") == 200)
     }
 
     @Test
@@ -32,17 +38,17 @@ class CheckoutSolutionTest {
          * 1A = 50
          * = 380
          */
-        assert(CheckoutSolution.checkout("AAAAAAAAA") == 380)
+        assert(checkout("AAAAAAAAA") == 380)
     }
 
     @Test
     fun `B Special`() {
-        assert(CheckoutSolution.checkout("BB") == 45)
+        assert(checkout("BB") == 45)
     }
 
     @Test
     fun `One B`() {
-        assert(CheckoutSolution.checkout("B") == 30)
+        assert(checkout("B") == 30)
     }
 
 }
