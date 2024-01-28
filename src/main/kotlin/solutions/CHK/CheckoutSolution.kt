@@ -41,5 +41,3 @@ object CheckoutSolution {
     }
 }
 
-
-
