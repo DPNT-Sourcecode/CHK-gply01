@@ -84,4 +84,3 @@ data class Skus(var totalSoFar: Int, val skus: MutableList<Char>) {
     }
 
 }
-
